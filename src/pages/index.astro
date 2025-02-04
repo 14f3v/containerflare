@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 
 export const prerender = true;
+const registryDomain = import.meta.env.PUBLIC_REGISTRY_DOMAIN || 'cfcr.dev';
+const registryUrl = `docker run ${registryDomain}/hello-world`;
 ---
 
 <Layout title="Containerflare">
@@ -12,7 +14,7 @@ export const prerender = true;
     </h2>
     <p class="instructions">
       Containerflare is <strong>3x</strong> faster than DockerHub!<br />
-      <code>docker run cfcr.dev/hello-world</code>
+      <code>{registryUrl}</code>
     </p>
   </main>
 </Layout>
